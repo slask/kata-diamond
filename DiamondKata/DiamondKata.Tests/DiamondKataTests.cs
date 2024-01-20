@@ -104,4 +104,17 @@ public class DiamondKataTests
 		//assert
 		diamond2.Should().BeEquivalentTo(expectedDiamond2);
 	}
+
+	[Fact]
+	public void CheckEdgeCase_WhenMidpointisZ()
+	{
+		//act
+		char[,] diamond = _creator.CreateDiamond('Z');
+		
+		//assert
+		diamond[0, 25] = 'A';
+		diamond[50, 25] = 'A';
+		diamond[25, 0] = 'Z';
+		diamond[25, 25] = 'Z';
+	}
 }
