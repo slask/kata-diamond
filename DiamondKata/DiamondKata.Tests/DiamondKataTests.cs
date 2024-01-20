@@ -110,7 +110,7 @@ public class DiamondKataTests
 	{
 		//act
 		char[,] diamond = _creator.CreateDiamond('Z');
-		
+
 		//assert
 		diamond[0, 25] = 'A';
 		diamond[50, 25] = 'A';

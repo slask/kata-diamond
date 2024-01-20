@@ -3,7 +3,7 @@
 using DiamondKata;
 
 var creator = new DiamondCreator();
-char[,] diamond = creator.CreateDiamond('H');
+char[,] diamond = creator.CreateDiamond('H', ' ');
 
 PrintDiamondModel(diamond);
 

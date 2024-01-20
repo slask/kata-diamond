@@ -2,7 +2,7 @@ namespace DiamondKata;
 
 public class DiamondCreator
 {
-	public char[,] CreateDiamond(char midpoint)
+	public char[,] CreateDiamond(char midpoint, char backgroundChar = '_')
 	{
 		if (midpoint < 'A' || 'Z' < midpoint)
 		{
@@ -32,7 +32,7 @@ public class DiamondCreator
 				}
 				else
 				{
-					diamondModel[row, col] = '_';
+					diamondModel[row, col] = backgroundChar;
 				}
 
 				// after the bottom half we just copy the previous row values
