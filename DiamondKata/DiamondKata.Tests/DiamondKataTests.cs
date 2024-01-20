@@ -4,14 +4,13 @@ namespace DiamondKata.Tests;
 
 public class DiamondKataTests
 {
+	private readonly DiamondCreator _creator = new();
+
 	[Fact]
 	public void DesignPubicApi()
 	{
-		//arrange
-		var creator = new DiamondCreator();
-
 		//act
-		char[,] diamond = creator.CreateDiamond('Z');
+		char[,] diamond = _creator.CreateDiamond('Z');
 
 		//assert
 		diamond.Should().BeNull();
@@ -20,11 +19,8 @@ public class DiamondKataTests
 	[Fact]
 	public void When_MidpointIsA_Then_DiamondIsADot()
 	{
-		//arrange
-		var creator = new DiamondCreator();
-
 		//act
-		char[,] diamond = creator.CreateDiamond('A');
+		char[,] diamond = _creator.CreateDiamond('A');
 
 		//assert
 		diamond.GetLength(0).Should().Be(1);
