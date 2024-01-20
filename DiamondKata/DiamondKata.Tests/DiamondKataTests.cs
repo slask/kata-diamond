@@ -106,7 +106,7 @@ public class DiamondKataTests
 	}
 
 	[Fact]
-	public void CheckEdgeCase_WhenMidpointisZ()
+	public void CheckEdgeCase_WhenMidpointIsZ()
 	{
 		//act
 		char[,] diamond = _creator.CreateDiamond('Z');
