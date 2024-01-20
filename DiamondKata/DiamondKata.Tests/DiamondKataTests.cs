@@ -79,11 +79,29 @@ public class DiamondKataTests
 			{ '_', 'B', '_', 'B', '_' },
 			{ '_', '_', 'A', '_', '_' }
 		};
-		
+
 		//act
 		char[,] diamond = _creator.CreateDiamond('C');
 
 		//assert
 		diamond.Should().BeEquivalentTo(expectedDiamond);
+
+		//arrange
+		char[,] expectedDiamond2 = new char[7, 7]
+		{
+			{ '_', '_', '_', 'A', '_', '_', '_' },
+			{ '_', '_', 'B', '_', 'B', '_', '_' },
+			{ '_', 'C', '_', '_', '_', 'C', '_' },
+			{ 'D', '_', '_', '_', '_', '_', 'D' },
+			{ '_', 'C', '_', '_', '_', 'C', '_' },
+			{ '_', '_', 'B', '_', 'B', '_', '_' },
+			{ '_', '_', '_', 'A', '_', '_', '_' }
+		};
+
+		//act
+		char[,] diamond2 = _creator.CreateDiamond('D');
+
+		//assert
+		diamond2.Should().BeEquivalentTo(expectedDiamond2);
 	}
 }
