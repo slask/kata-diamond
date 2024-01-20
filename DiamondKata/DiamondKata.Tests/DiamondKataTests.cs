@@ -84,12 +84,6 @@ public class DiamondKataTests
 		char[,] diamond = _creator.CreateDiamond('C');
 
 		//assert
-		for (int i = 0; i < diamond.GetLength(0); i++)
-		{
-			for (int j = 0; j < diamond.GetLength(1); j++)
-			{
-				diamond[i, j].Should().Be(expectedDiamond[i, j]);
-			}
-		}
+		diamond.Should().BeEquivalentTo(expectedDiamond);
 	}
 }

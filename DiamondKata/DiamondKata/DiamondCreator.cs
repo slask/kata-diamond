@@ -23,12 +23,27 @@ public class DiamondCreator
 
 		for (int row = 0; row < diamondSize; row++)
 		{
+			char valueToPlace = (char)('A' + row);
 			for (int col = 0; col < diamondSize; col++)
 			{
 				if ((row == 0 || row == diamondSize - 1) &&
 				    col == midpointRowIndex)
 				{
 					diamondModel[row, col] = 'A';
+				}
+
+				if (col == midpointRowIndex - row || col == midpointRowIndex + row)
+				{
+					diamondModel[row, col] = valueToPlace;
+				}
+				else
+				{
+					diamondModel[row, col] = '_';
+				}
+
+				if (row > midpointRowIndex)
+				{
+					diamondModel[row, col] = diamondModel[midpointRowIndex - (row - midpointRowIndex), col];
 				}
 			}
 		}
