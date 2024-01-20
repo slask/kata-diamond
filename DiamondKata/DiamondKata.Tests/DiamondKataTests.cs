@@ -66,4 +66,30 @@ public class DiamondKataTests
 		diamond[0, 2].Should().Be('A');
 		diamond[4, 2].Should().Be('A');
 	}
+
+	[Fact]
+	public void ForRandomMidpoint_PlaceTheEdgesOfTheDiamond()
+	{
+		//arrange
+		char[,] expectedDiamond = new char[5, 5]
+		{
+			{ '_', '_', 'A', '_', '_' },
+			{ '_', 'B', '_', 'B', '_' },
+			{ 'C', '_', '_', '_', 'C' },
+			{ '_', 'B', '_', 'B', '_' },
+			{ '_', '_', 'A', '_', '_' }
+		};
+		
+		//act
+		char[,] diamond = _creator.CreateDiamond('C');
+
+		//assert
+		for (int i = 0; i < diamond.GetLength(0); i++)
+		{
+			for (int j = 0; j < diamond.GetLength(1); j++)
+			{
+				diamond[i, j].Should().Be(expectedDiamond[i, j]);
+			}
+		}
+	}
 }
