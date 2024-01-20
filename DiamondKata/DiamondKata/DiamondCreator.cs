@@ -21,6 +21,18 @@ public class DiamondCreator
 			return diamondModel;
 		}
 
+		for (int row = 0; row < diamondSize; row++)
+		{
+			for (int col = 0; col < diamondSize; col++)
+			{
+				if (row == 0 || row == diamondSize - 1 &&
+				    col == midpointRowIndex)
+				{
+					diamondModel[row, col] = 'A';
+				}
+			}
+		}
+
 		return diamondModel;
 	}
 }
