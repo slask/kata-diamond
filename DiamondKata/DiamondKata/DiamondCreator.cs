@@ -28,14 +28,7 @@ public class DiamondCreator
 			{
 				if (InTopHalf(row, midpointRowIndex))
 				{
-					if (IsEdgePoint(row, col, midpointRowIndex))
-					{
-						diamondModel[row, col] = letter;
-					}
-					else
-					{
-						diamondModel[row, col] = backgroundChar;
-					}
+					diamondModel[row, col] = IsEdgePoint(row, col, midpointRowIndex) ? letter : backgroundChar;
 				}
 				else // after the bottom half we just copy the previous row values
 				{
