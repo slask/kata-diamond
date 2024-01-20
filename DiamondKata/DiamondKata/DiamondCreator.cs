@@ -26,17 +26,18 @@ public class DiamondCreator
 			char letter = GetEdgePointLetter(row);
 			for (int col = 0; col < diamondSize; col++)
 			{
-				if (IsEdgePoint(row, col, midpointRowIndex))
+				if (InTopHalf(row, midpointRowIndex))
 				{
-					diamondModel[row, col] = letter;
+					if (IsEdgePoint(row, col, midpointRowIndex))
+					{
+						diamondModel[row, col] = letter;
+					}
+					else
+					{
+						diamondModel[row, col] = backgroundChar;
+					}
 				}
-				else
-				{
-					diamondModel[row, col] = backgroundChar;
-				}
-
-				// after the bottom half we just copy the previous row values
-				if (InBottomHalf(row, midpointRowIndex))
+				else // after the bottom half we just copy the previous row values
 				{
 					int mirrorRowIndex = midpointRowIndex - (row - midpointRowIndex);
 					diamondModel[row, col] = diamondModel[mirrorRowIndex, col];
@@ -47,9 +48,9 @@ public class DiamondCreator
 		return diamondModel;
 	}
 
-	private static bool InBottomHalf(int row, int midpointRowIndex)
+	private static bool InTopHalf(int row, int midpointRowIndex)
 	{
-		return row > midpointRowIndex;
+		return row <= midpointRowIndex;
 	}
 
 	private static char GetEdgePointLetter(int row)
