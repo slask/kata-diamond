@@ -4,6 +4,8 @@ public class DiamondCreator
 {
 	public char[,] CreateDiamond(char midpoint)
 	{
+		int diamondSize = 2 * (midpoint - 'A' + 1) - 1;
+
 		if (midpoint < 'A' || 'Z' < midpoint)
 		{
 			// in the real world something like this could be handled with a Result<T> depending on scenario and location in the architecture 
@@ -18,6 +20,6 @@ public class DiamondCreator
 			return diamondModel;
 		}
 
-		return null;
+		return new char[diamondSize, diamondSize];
 	}
 }

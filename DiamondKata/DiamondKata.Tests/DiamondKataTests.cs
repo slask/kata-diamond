@@ -13,7 +13,7 @@ public class DiamondKataTests
 		char[,] diamond = _creator.CreateDiamond('Z');
 
 		//assert
-		diamond.Should().BeNull();
+		diamond.Should().NotBeNull();
 	}
 
 	[Fact]
