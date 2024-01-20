@@ -55,4 +55,15 @@ public class DiamondKataTests
 		diamond2.GetLength(0).Should().Be(2 * 4 - 1);
 		diamond2.GetLength(1).Should().Be(7);
 	}
+
+	[Fact]
+	public void WhenMidpointIsRandom_PlaceThePeaksOfTheDiamondInTheMiddleColumn()
+	{
+		//act
+		char[,] diamond = _creator.CreateDiamond('C');
+
+		//assert
+		diamond[0, 2].Should().Be('A');
+		diamond[4, 2].Should().Be('A');
+	}
 }
