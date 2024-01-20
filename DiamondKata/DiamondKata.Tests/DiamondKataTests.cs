@@ -5,8 +5,15 @@ namespace DiamondKata.Tests;
 public class DiamondKataTests
 {
 	[Fact]
-	public void Test1()
+	public void DesignPubicApi()
 	{
-		true.Should().BeTrue();
+		//arrange
+		var creator = new DiamondCreator();
+
+		//act
+		char[,] diamond = creator.CreateDiamond('A');
+
+		//assert
+		diamond.Should().BeNull();
 	}
 }
