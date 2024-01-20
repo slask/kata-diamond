@@ -11,7 +11,7 @@ public class DiamondKataTests
 		var creator = new DiamondCreator();
 
 		//act
-		char[,] diamond = creator.CreateDiamond('A');
+		char[,] diamond = creator.CreateDiamond('Z');
 
 		//assert
 		diamond.Should().BeNull();
