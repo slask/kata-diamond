@@ -23,31 +23,41 @@ public class DiamondCreator
 
 		for (int row = 0; row < diamondSize; row++)
 		{
-			char valueToPlace = (char)('A' + row);
+			char letter = GetEdgePointLetter(row);
 			for (int col = 0; col < diamondSize; col++)
 			{
-				if ((row == 0 || row == diamondSize - 1) &&
-				    col == midpointRowIndex)
+				if (IsEdgePoint(col, midpointRowIndex, row))
 				{
-					diamondModel[row, col] = 'A';
-				}
-
-				if (col == midpointRowIndex - row || col == midpointRowIndex + row)
-				{
-					diamondModel[row, col] = valueToPlace;
+					diamondModel[row, col] = letter;
 				}
 				else
 				{
 					diamondModel[row, col] = '_';
 				}
-
-				if (row > midpointRowIndex)
+				
+				if (InBottomHalf(row, midpointRowIndex))
 				{
-					diamondModel[row, col] = diamondModel[midpointRowIndex - (row - midpointRowIndex), col];
+					int mirrorRowIndex =  midpointRowIndex - (row - midpointRowIndex);
+					diamondModel[row, col] = diamondModel[mirrorRowIndex, col];
 				}
 			}
 		}
 
 		return diamondModel;
+	}
+
+	private static bool InBottomHalf(int row, int midpointRowIndex)
+	{
+		return row > midpointRowIndex;
+	}
+
+	private static char GetEdgePointLetter(int row)
+	{
+		return (char)('A' + row);
+	}
+
+	private static bool IsEdgePoint(int row, int col, int midpointRowIndex)
+	{
+		return col == midpointRowIndex - row || col == midpointRowIndex + row;
 	}
 }
