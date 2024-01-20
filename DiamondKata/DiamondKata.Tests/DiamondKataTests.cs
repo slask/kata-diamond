@@ -37,4 +37,22 @@ public class DiamondKataTests
 		Action createRight = () => _creator.CreateDiamond((char)('Z' + 1));
 		createRight.Should().Throw<ArgumentException>();
 	}
+
+	[Fact]
+	public void WhenMidpointIsRandom_ReturnASquareModelOfProperSize()
+	{
+		//act
+		char[,] diamond = _creator.CreateDiamond('C');
+
+		//assert
+		diamond.GetLength(0).Should().Be(2 * 3 - 1);
+		diamond.GetLength(1).Should().Be(5);
+
+		//act
+		char[,] diamond2 = _creator.CreateDiamond('D');
+
+		//assert
+		diamond2.GetLength(0).Should().Be(2 * 4 - 1);
+		diamond2.GetLength(1).Should().Be(7);
+	}
 }
